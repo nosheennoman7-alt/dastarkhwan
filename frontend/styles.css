@@ -208,9 +208,9 @@ a:focus-visible,
   overflow: hidden;
 }
 
-.hero-inner {
+/* Limit the text width, not the container, so the hero lines up with other sections without overflowing */
+.hero-inner > * {
   max-width: 760px;
-  margin-left: max(20px, calc((100% - 1120px) / 2 + 20px));
 }
 
 .hero .eyebrow {
@@ -504,6 +504,10 @@ address {
     font-size: 0.95rem;
   }
 
+  .main-nav .nav-cta {
+    padding: 6px 14px;
+  }
+
   .hero {
     padding: 72px 0 80px;
   }
@@ -528,6 +532,11 @@ address {
 
   .site-footer ul {
     justify-content: center;
+  }
+
+  /* Leaves room so the floating chat button doesn't cover the copyright line */
+  .site-footer {
+    padding-bottom: 96px;
   }
 }
 
@@ -770,5 +779,25 @@ address {
     bottom: 84px;
     width: auto;
     height: min(520px, calc(100dvh - 100px));
+  }
+}
+
+/* Responsive: small phones - keeps the nav on one row so the sticky header stays short */
+@media (max-width: 380px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .main-nav ul {
+    gap: 0;
+  }
+
+  .main-nav a {
+    padding: 6px 8px;
+    font-size: 0.875rem;
+  }
+
+  .main-nav .nav-cta {
+    padding: 6px 12px;
   }
 }
