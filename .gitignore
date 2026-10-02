@@ -1,4 +1,24 @@
+# Dependencies
 node_modules/
+
+# Secrets and environment variables (never commit these)
 .env
+.env.*
+!.env.example
+
+# macOS
 .DS_Store
+._*
+
+# Windows
 Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# Logs
+*.log
+npm-debug.log*
