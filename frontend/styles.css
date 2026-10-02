@@ -201,16 +201,30 @@ a:focus-visible,
   position: relative;
   padding: 120px 0 130px;
   color: #fff;
-  background:
-    radial-gradient(circle at 85% 20%, rgba(233, 162, 59, 0.45), transparent 45%),
-    radial-gradient(circle at 10% 90%, rgba(233, 162, 59, 0.25), transparent 40%),
-    linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+  background: #280a10;
   overflow: hidden;
 }
 
 /* Limit the text width, not the container, so the hero lines up with other sections without overflowing */
 .hero-inner > * {
   max-width: 760px;
+}
+
+/* Matka biryani photo: sits on the right and fades into the dark background behind the headline */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(55%, 720px);
+  background: url("https://images.pexels.com/photos/16229982/pexels-photo-16229982.jpeg?auto=compress&cs=tinysrgb&w=1200") center / cover no-repeat;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 45%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 45%);
+}
+
+.hero-inner {
+  position: relative;
 }
 
 .hero .eyebrow {
@@ -306,7 +320,7 @@ a:focus-visible,
 .dish-card {
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  overflow: hidden;
   background: var(--cream);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -335,6 +349,22 @@ a:focus-visible,
   font-weight: 700;
   font-size: 1.1rem;
   color: var(--maroon);
+}
+
+.dish-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 20px 24px 24px;
+}
+
+.dish-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  background: var(--line);
 }
 
 .dish-card p {
@@ -799,5 +829,90 @@ address {
 
   .main-nav .nav-cta {
     padding: 6px 12px;
+  }
+}
+
+/* Urdu text (Nastaliq script needs extra line height) */
+.urdu {
+  font-family: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", "Urdu Typesetting", serif;
+  line-height: 2;
+}
+
+.urdu-heading {
+  margin: -0.25em 0 0.75em;
+  font-size: 1.35rem;
+  color: var(--saffron-dark);
+}
+
+.section-heading .urdu-heading {
+  text-align: center;
+}
+
+.about-text .urdu-heading,
+.visit-card .urdu-heading {
+  text-align: left;
+}
+
+.logo-urdu {
+  display: block;
+  margin-top: -4px;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--saffron-dark);
+  text-align: left;
+}
+
+.hero-urdu {
+  margin: -0.4em 0 0.9em;
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  color: var(--saffron);
+  text-align: left;
+}
+
+.menu-category .urdu {
+  margin-left: 10px;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--saffron-dark);
+}
+
+.dish-card .dish-urdu {
+  flex-grow: 0;
+  margin: -6px 0 6px;
+  font-size: 1.05rem;
+  color: var(--maroon);
+  text-align: left;
+}
+
+.footer-urdu {
+  margin: -4px 0 4px;
+  color: var(--saffron);
+}
+
+.photo-credit {
+  margin: 8px 0 0;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .footer-inner .urdu,
+  .footer-urdu {
+    text-align: center;
+  }
+
+  .logo-urdu {
+    display: none;
+  }
+}
+
+/* Text spans the full width on tablets and phones, so the photo fills the hero with an even dark overlay */
+@media (max-width: 860px) {
+  .hero::before {
+    width: 100%;
+    opacity: 0.3;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 }
