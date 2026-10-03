@@ -1,6 +1,6 @@
-// BiryaniBot chat widget (front end only, no AI connected yet)
+// Dastarkhwan Assistant chat widget (front end only, no AI connected yet)
 
-const FIXED_REPLY = "Assalam-o-Alaikum! I'm BiryaniBot. My AI brain isn't connected yet.";
+const FIXED_REPLY = "Hi! I'm Dastarkhwan Assistant. My AI brain isn't connected yet.";
 const REPLY_DELAY_MS = 600;
 
 const toggleButton = document.getElementById("chat-toggle");
@@ -24,7 +24,7 @@ function closeChat() {
   chatWindow.classList.remove("is-open");
   toggleButton.classList.remove("is-open");
   toggleButton.setAttribute("aria-expanded", "false");
-  toggleButton.setAttribute("aria-label", "Open chat with BiryaniBot");
+  toggleButton.setAttribute("aria-label", "Open chat with Dastarkhwan Assistant");
   chatWindow.addEventListener("transitionend", () => {
     if (!chatWindow.classList.contains("is-open")) chatWindow.hidden = true;
   }, { once: true });
