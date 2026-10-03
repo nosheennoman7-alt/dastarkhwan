@@ -939,3 +939,34 @@ address {
     height: 300px;
   }
 }
+
+/* Short screens (e.g. phones held sideways): give the chat messages more room */
+@media (max-height: 500px) {
+  .chat-toggle {
+    bottom: 12px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .chat-window {
+    bottom: 72px;
+    height: calc(100dvh - 84px);
+  }
+
+  .chat-header {
+    padding: 8px 14px;
+  }
+
+  .chat-subtitle {
+    display: none;
+  }
+
+  .chat-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .chat-form {
+    padding: 8px 12px;
+  }
+}
